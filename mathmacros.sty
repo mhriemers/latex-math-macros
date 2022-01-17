@@ -7,16 +7,19 @@
 \RequirePackage{dsfont}
 \RequirePackage{etoolbox}
 
+% bold version (standard)
 \DeclareOption{bold}{
-\newcommand{\mat}[1]{\bm{#1}} % bold version
-\renewcommand{\vec}[1]{\bm{#1}} % bold version
+\newcommand{\mat}[1]{\bm{#1}}
+\renewcommand{\vec}[1]{\bm{#1}}
 }
 
+% pure math version
 \DeclareOption{pure}{
-\renewcommand{\mat}[1]{#1} % pure math version
-\renewcommand{\vec}[1]{#1} % pure math version
+\renewcommand{\mat}[1]{#1}
+\renewcommand{\vec}[1]{#1}
 }
 
+% optional expressive flag
 \newif\if@expressive
 \@expressivefalse
 \DeclareOption{expressive}{
