@@ -1,0 +1,122 @@
+\ProvidesPackage{mathmacros}[2022/01/17 Math macros]
+
+\RequirePackage{mathtools}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage{bm}
+\RequirePackage{dsfont}
+\RequirePackage{etoolbox}
+
+\DeclareOption{bold}{
+\newcommand{\mat}[1]{\bm{#1}} % bold version
+\renewcommand{\vec}[1]{\bm{#1}} % bold version
+}
+
+\DeclareOption{pure}{
+\renewcommand{\mat}[1]{#1} % pure math version
+\renewcommand{\vec}[1]{#1} % pure math version
+}
+
+\newif\if@expressive
+\@expressivefalse
+\DeclareOption{expressive}{
+  \@expressivetrue
+}
+
+\ExecuteOptions{bold}
+
+\ProcessOptions\relax
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\mean}[1]{\overline{#1}}
+\newcommand{\est}[1]{\hat{#1}}
+\newcommand{\pop}[1]{\tilde{#1}}
+\newcommand{\given}{\:\vert\:}
+
+\if@expressive
+\newcommand{\T}[1]{{#1}^{\mathsf{T}}} % transpose
+\else
+\newcommand{\T}[1]{#1'} % transpose
+\fi
+
+\newcommand{\inv}[1]{{#1}^{-1}} % inverse
+\newcommand{\ones}{\mat{J}} % matrix of ones
+\newcommand{\zeros}{\mat{0}} % matrix of zeros
+\newcommand{\eye}{\mat{I}} % identity matrix
+\newcommand{\info}{\mat{\mathcal{I}}} % information set
+\newcommand{\iid}{\text{i.i.d.}} % information set
+
+\let\ln\relax
+\DeclareMathOperator*{\ln}{log}
+\DeclareMathOperator*{\argmin}{\arg\min}
+\DeclareMathOperator*{\argmax}{\arg\max}
+
+% with \given support
+\DeclarePairedDelimiterX{\parens}[1]{(}{)}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}}
+\DeclarePairedDelimiterX{\brackets}[1]{[}{]}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}}
+\DeclarePairedDelimiterX{\braces}[1]{\{}{\}}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}}
+\DeclarePairedDelimiterX{\angles}[1]{\langle}{\rangle}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}}
+\DeclarePairedDelimiterX{\pipes}[1]{|}{|}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}}
+\DeclarePairedDelimiterX{\dpipes}[1]{\|}{\|}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}}
+
+% use with star, e.g. \norm*{}, for correct vertical spacing
+\DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{\ifblank{#1}{{}\cdot{}}{#1}}
+\DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{\ifblank{#1}{{}\cdot{}}{#1}}
+\DeclarePairedDelimiterX{\card}[1]{\lvert}{\rvert}{\ifblank{#1}{{}\cdot{}}{#1}}
+\DeclarePairedDelimiterX{\ceil}[1]{\lceil}{\rceil}{\ifblank{#1}{{}\cdot{}}{#1}}
+\DeclarePairedDelimiterX{\floor}[1]{\lfloor}{\rfloor}{\ifblank{#1}{{}\cdot{}}{#1}}
+
+\let\Pr\relax
+\DeclarePairedDelimiterXPP{\Pr}[1]{\mathbb{P}}{(}{)}{}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}}
+\DeclarePairedDelimiterXPP{\F}[1]{\operatorname{F}}{(}{)}{}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}}
+\DeclarePairedDelimiterXPP{\E}[2]{\mathbb{E}_{#2}}{[}{]}{}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}}
+\DeclarePairedDelimiterXPP{\Var}[2]{\operatorname{Var}_{#2}}{[}{]}{}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}}
+\DeclarePairedDelimiterXPP{\Cov}[1]{\operatorname{Cov}}{(}{)}{}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}} 
+\DeclarePairedDelimiterXPP{\Corr}[1]{\operatorname{Corr}}{(}{)}{}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}} 
+\DeclarePairedDelimiterXPP{\Sh}[1]{\operatorname{Sh}}{(}{)}{}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}} % Sharpe-ratio
+\let\det\relax
+\DeclarePairedDelimiterXPP{\det}[1]{\operatorname{det}}{(}{)}{}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}} % det
+\DeclarePairedDelimiterXPP{\diag}[1]{\operatorname{diag}}{(}{)}{}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}} % diag
+\DeclarePairedDelimiterXPP{\tr}[1]{\operatorname{tr}}{(}{)}{}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}} % trace
+\DeclarePairedDelimiterXPP{\1}[1]{\mathds{1}}{(}{)}{}{
+\renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
+\ifblank{#1}{{}\cdot{}}{#1}} % indicator function
+
+\endinput
