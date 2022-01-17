@@ -42,17 +42,25 @@
 \newcommand{\given}{\:\vert\:}
 
 \if@expressive
-\newcommand{\T}[1]{{#1}^{\mathsf{T}}} % transpose
+% transpose
+\newcommand{\T}[1]{{#1}^{\mathsf{T}}} 
 \else
-\newcommand{\T}[1]{#1'} % transpose
+% transpose
+\newcommand{\T}[1]{#1'}
 \fi
 
-\newcommand{\inv}[1]{{#1}^{-1}} % inverse
-\newcommand{\ones}{\mat{J}} % matrix of ones
-\newcommand{\zeros}{\mat{0}} % matrix of zeros
-\newcommand{\eye}{\mat{I}} % identity matrix
-\newcommand{\info}{\mat{\mathcal{I}}} % information set
-\newcommand{\iid}{\text{i.i.d.}} % information set
+% inverse
+\newcommand{\inv}[1]{{#1}^{-1}} 
+% matrix of ones
+\newcommand{\ones}{\mat{J}} 
+% matrix of zeros
+\newcommand{\zeros}{\mat{0}} 
+% identity matrix
+\newcommand{\eye}{\mat{I}} 
+% information set
+\newcommand{\info}{\mat{\mathcal{I}}} 
+% independent and identically distributed 
+\newcommand{\iid}{\text{i.i.d.}}
 
 \let\ln\relax
 \DeclareMathOperator*{\ln}{log}
@@ -105,21 +113,26 @@
 \DeclarePairedDelimiterXPP{\Corr}[1]{\operatorname{Corr}}{(}{)}{}{
 \renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
 \ifblank{#1}{{}\cdot{}}{#1}} 
+% Sharpe-ratio
 \DeclarePairedDelimiterXPP{\Sh}[1]{\operatorname{Sh}}{(}{)}{}{
 \renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
-\ifblank{#1}{{}\cdot{}}{#1}} % Sharpe-ratio
+\ifblank{#1}{{}\cdot{}}{#1}} 
 \let\det\relax
+% determinant
 \DeclarePairedDelimiterXPP{\det}[1]{\operatorname{det}}{(}{)}{}{
 \renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
-\ifblank{#1}{{}\cdot{}}{#1}} % det
+\ifblank{#1}{{}\cdot{}}{#1}}
+% diagonal 
 \DeclarePairedDelimiterXPP{\diag}[1]{\operatorname{diag}}{(}{)}{}{
 \renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
-\ifblank{#1}{{}\cdot{}}{#1}} % diag
+\ifblank{#1}{{}\cdot{}}{#1}}
+% trace
 \DeclarePairedDelimiterXPP{\tr}[1]{\operatorname{tr}}{(}{)}{}{
 \renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
-\ifblank{#1}{{}\cdot{}}{#1}} % trace
+\ifblank{#1}{{}\cdot{}}{#1}}
+% indicator function
 \DeclarePairedDelimiterXPP{\1}[1]{\mathds{1}}{(}{)}{}{
 \renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
-\ifblank{#1}{{}\cdot{}}{#1}} % indicator function
+\ifblank{#1}{{}\cdot{}}{#1}}
 
 \endinput
