@@ -9,14 +9,14 @@
 
 % bold version (standard)
 \DeclareOption{bold}{
-\renewcommand{\m}[1]{\bm{#1}}
-\renewcommand{\v}[1]{\bm{#1}}
+\def\m#1{\bm{#1}}
+\def\v#1{\bm{#1}}
 }
 
 % pure math version
 \DeclareOption{pure}{
-\renewcommand{\m}[1]{#1}
-\renewcommand{\v}[1]{#1}
+\def\m#1{#1}
+\def\v#1{#1}
 }
 
 % optional expressive flag
