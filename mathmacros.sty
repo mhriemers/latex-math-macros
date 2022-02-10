@@ -117,8 +117,8 @@
 \DeclarePairedDelimiterXPP{\Sh}[1]{\operatorname{Sh}}{(}{)}{}{
 \renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
 \ifblank{#1}{{}\cdot{}}{#1}} 
-\let\det\relax
 % determinant
+\let\det\relax
 \DeclarePairedDelimiterXPP{\det}[1]{\operatorname{det}}{(}{)}{}{
 \renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
 \ifblank{#1}{{}\cdot{}}{#1}}
@@ -131,6 +131,7 @@
 \renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
 \ifblank{#1}{{}\cdot{}}{#1}}
 % vec
+\let\vec\relax
 \DeclarePairedDelimiterXPP{\vec}[1]{\operatorname{vec}}{(}{)}{}{
 \renewcommand\given{\nonscript\:\delimsize\vert\nonscript\:\mathopen{}}
 \ifblank{#1}{{}\cdot{}}{#1}}
