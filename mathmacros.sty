@@ -9,14 +9,14 @@
 
 % bold version (standard)
 \DeclareOption{bold}{
-\newcommand{\mat}[1]{\bm{#1}}
-\renewcommand{\vec}[1]{\bm{#1}}
+\renewcommand{\m}[1]{\bm{#1}}
+\renewcommand{\v}[1]{\bm{#1}}
 }
 
 % pure math version
 \DeclareOption{pure}{
-\renewcommand{\mat}[1]{#1}
-\renewcommand{\vec}[1]{#1}
+\renewcommand{\m}[1]{#1}
+\renewcommand{\v}[1]{#1}
 }
 
 % optional expressive flag
@@ -52,13 +52,13 @@
 % inverse
 \newcommand{\inv}[1]{{#1}^{-1}} 
 % matrix of ones
-\newcommand{\ones}{\mat{J}} 
+\newcommand{\ones}{\m{J}} 
 % matrix of zeros
-\newcommand{\zeros}{\mat{0}} 
+\newcommand{\zeros}{\m{0}} 
 % identity matrix
-\newcommand{\eye}{\mat{I}} 
+\newcommand{\eye}{\m{I}} 
 % information set
-\newcommand{\info}{\mat{\mathcal{I}}} 
+\newcommand{\info}{\m{\mathcal{I}}} 
 % independent and identically distributed 
 \newcommand{\iid}{\text{i.i.d.}}
 
